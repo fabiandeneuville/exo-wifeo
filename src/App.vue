@@ -1,22 +1,33 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <formBlock></formBlock>
+    <articlesList></articlesList>
+
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+
+import formBlock from './components/formBlock.vue'
+import articlesList from './components/articlesList.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    formBlock,
+    articlesList
   }
 }
 </script>
 
 <style>
+
+*, ::before, ::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
