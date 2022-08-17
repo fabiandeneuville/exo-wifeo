@@ -2,8 +2,8 @@
     
     <div class="card">
         <div class="btn__container">
-            <button>←</button>
-            <button>→</button>
+            <button v-on:click="moveElement('left')">←</button>
+            <button v-on:click="moveElement('right')">→</button>
             <button v-on:click="removeArticle">🗑</button>
         </div>
         <h2>{{ article }}</h2>
@@ -21,6 +21,22 @@ export default {
     methods: {
         removeArticle(){
             store.commit('REMOVE_ARTICLE', this.index)
+        },
+        moveElement(direction){
+            let payload = {
+                index: this.index,
+                newIndex : 0,
+                article : this.article
+            }
+            if(direction === 'left'){
+                payload.newIndex = this.index - 1
+                store.commit('MOVE_ELEMENT', payload)
+            } else if (direction === 'right'){
+                payload.newIndex = this.index + 1
+                store.commit('MOVE_ELEMENT', payload)
+            } else {
+                return
+            }
         }
     }
 }

@@ -13,6 +13,11 @@ export default new Vuex.Store({
         },
         REMOVE_ARTICLE(state, index){
             state.articlesList.splice(index, 1);
+        },
+        MOVE_ELEMENT(state, payload){
+            let temp = payload.article;
+            state.articlesList.splice(payload.index, 1);
+            state.articlesList.splice(payload.newIndex, 0, temp);
         }
     }
 })
