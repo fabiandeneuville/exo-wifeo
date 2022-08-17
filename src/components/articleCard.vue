@@ -28,6 +28,13 @@ export default {
                 newIndex : 0,
                 article : this.article
             }
+            if(this.index === 0 && direction === 'left'){
+                return
+            } 
+            if(this.index === store.state.articlesList.length - 1 && direction === 'right'){
+                return 
+            }
+
             if(direction === 'left'){
                 payload.newIndex = this.index - 1
                 store.commit('MOVE_ELEMENT', payload)
